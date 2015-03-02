@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     thread = new QThread;
-    tc = new TestClass(1);
+    tc = new Worker1(1);
     tc->moveToThread(thread);
 
     connect(thread, SIGNAL(started()), tc, SLOT(run()));

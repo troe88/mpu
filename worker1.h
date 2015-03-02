@@ -4,17 +4,17 @@
 #include <QObject>
 #include <QDebug>
 
-class TestClass : public QObject
+class Worker1 : public QObject
 {
     Q_OBJECT
     int num_;
     bool s_;
 
 public:
-    explicit TestClass(int i, QObject *parent = 0);
+    explicit Worker1(int i, QObject *parent = 0);
     void stop();
 
-    ~TestClass();
+    ~Worker1();
 
 public slots:
     void run();

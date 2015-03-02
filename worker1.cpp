@@ -1,25 +1,25 @@
-#include "testclass.h"
+#include "worker1.h"
 #include <QThread>
 
-TestClass::TestClass(int i, QObject *parent) : QObject(parent)
+Worker1::Worker1(int i, QObject *parent) : QObject(parent)
 {
     num_ = i;
     s_ = false;
 }
 
-void TestClass::run() {
+void Worker1::run() {
     while (!s_) {
         qDebug() << "from: " << num_;
     }
 }
 
-void TestClass::stop(){
+void Worker1::stop(){
     s_ = true;
     emit finished();
 }
 
 
-TestClass::~TestClass()
+Worker1::~Worker1()
 {
 
 }
