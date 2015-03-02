@@ -8,8 +8,12 @@ class TestClass : public QObject
 {
     Q_OBJECT
     int num_;
+    bool s_;
+
 public:
     explicit TestClass(int i, QObject *parent = 0);
+    void stop();
+
     ~TestClass();
 
 public slots:
