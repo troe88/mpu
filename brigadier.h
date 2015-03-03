@@ -9,18 +9,19 @@
 class Brigadier : public QObject
 {
     Q_OBJECT
+
 protected:
     bool s_;
     QString name_;
     QMutex  mutex_;
     virtual void stop() = 0;
 
-protected slots:
-    virtual void run() = 0;
-
-public:
+protected:
     explicit Brigadier(QString name, QObject *parent = 0);
     ~Brigadier();
+
+protected slots:
+    virtual void run() = 0;
 
 signals:
     void finished();

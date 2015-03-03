@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QDebug>
-#include "worker.h"
+#include "worker1.h"
+#include "worker2.h"
 #include <QThread>
 #include <QtConcurrent/QtConcurrent>
 
@@ -18,7 +19,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
     Worker1* w1_;
-    QThread* thread;
+    Worker2* w2_;
+    QThread* thread1_;
+    QThread* thread2_;
 
 public:
     explicit MainWindow(QWidget *parent = 0);

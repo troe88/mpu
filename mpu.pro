@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     brigadier.cpp \
-    worker.cpp
+    worker1.cpp \
+    worker2.cpp
 
 HEADERS  += mainwindow.h \
     brigadier.h \
-    worker.h
+    worker1.h \
+    worker2.h
 
 FORMS    += mainwindow.ui
