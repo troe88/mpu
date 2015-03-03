@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     w2_ = new Worker2(QString("w2"));
     w2_->moveToThread(thread2_);
 
+
+
     connect(thread1_, SIGNAL(started()), w1_, SLOT(run()));
     connect(w1_, SIGNAL(finished()), thread1_, SLOT(quit()));
     connect(w1_, SIGNAL(finished()), w1_, SLOT(deleteLater()));
