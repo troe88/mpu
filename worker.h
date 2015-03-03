@@ -1,9 +1,9 @@
 #ifndef W1_H
 #define W1_H
 
-#include "worker1.h"
+#include "brigadier.h"
 
-class w1 : public Worker1
+class Worker1 : public Brigadier
 {
     Q_OBJECT
 
@@ -14,8 +14,8 @@ public slots:
     void run()Q_DECL_OVERRIDE;
 
 public:
-    explicit w1(QString name, QObject *parent = 0);
-    ~w1();
+    explicit Worker1(QString name, QObject *parent = 0);
+    ~Worker1();
 };
 
 #endif // W1_H

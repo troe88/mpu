@@ -1,14 +1,14 @@
-#include "w1.h"
+#include "worker.h"
 #include <QThread>
 #include <QMutex>
 
-w1::w1(QString name, QObject *parent) : Worker1(name, parent)
+Worker1::Worker1(QString name, QObject *parent) : Brigadier(name, parent)
 {
 
 }
 
 
-void w1::run(){
+void Worker1::run(){
     int i = 0;
     while (!s_) {
         this->thread()->msleep(1);
@@ -18,7 +18,7 @@ void w1::run(){
     qDebug() << "stop: " << name_;
 }
 
-void w1::stop(){
+void Worker1::stop(){
     mutex_.lock();
     s_ = true;
     mutex_.unlock();
@@ -26,6 +26,6 @@ void w1::stop(){
     emit finished();
 }
 
-w1::~w1(){
+Worker1::~Worker1(){
 
 }

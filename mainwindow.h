@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QDebug>
-#include "w1.h"
+#include "worker.h"
 #include <QThread>
 #include <QtConcurrent/QtConcurrent>
 
@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    w1* w1_;
+    Worker1* w1_;
     QThread* thread;
 
 public:

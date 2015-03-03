@@ -6,7 +6,7 @@
 #include <QString>
 #include <QMutex>
 
-class Worker1 : public QObject
+class Brigadier : public QObject
 {
     Q_OBJECT
 protected:
@@ -19,8 +19,8 @@ protected slots:
     virtual void run() = 0;
 
 public:
-    explicit Worker1(QString name, QObject *parent = 0);
-    ~Worker1();
+    explicit Brigadier(QString name, QObject *parent = 0);
+    ~Brigadier();
 
 signals:
     void finished();
