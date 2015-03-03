@@ -14,6 +14,7 @@ void Worker1::run(){
         this->thread()->msleep(1);
         i++;
         sendData(QString::number(i) + "\n");
+        sendData(QString("Test\n"));
     }
     qDebug() << "stop: " << name_;
 }
