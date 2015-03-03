@@ -8,22 +8,24 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     thread = new QThread;
-    tc = new Worker1(1);
-    tc->moveToThread(thread);
 
-    connect(thread, SIGNAL(started()), tc, SLOT(run()));
+    w1_ = new w1(QString(""), this);
+    w1_->moveToThread(thread);
 
-    connect(tc, SIGNAL(finished()), thread, SLOT(quit()));
-    connect(tc, SIGNAL(finished()), tc, SLOT(deleteLater()));
+//    connect(thread, SIGNAL(started()), w1_, SLOT(run()));
 
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-    connect(thread, SIGNAL(finished()), this, SLOT(showMSG()));
+//    connect(w1_, SIGNAL(finished()), thread, SLOT(quit()));
+//    connect(w1_, SIGNAL(finished()), w1_, SLOT(deleteLater()));
 
-    thread->start();
+//    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+
+//    connect(w1_, SIGNAL(sendData(const QString &)), this->ui->worker1, SLOT(setText(const QString &)));
+
+//    thread->start();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event){
-    tc->stop();
+    w1_->stop();
     thread->wait();
     event->accept();
 }

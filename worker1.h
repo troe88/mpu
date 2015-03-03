@@ -3,24 +3,28 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QString>
+#include <QMutex>
 
 class Worker1 : public QObject
 {
     Q_OBJECT
-    int num_;
+protected:
     bool s_;
+    QString name_;
+    QMutex  mutex_;
+    virtual void stop() = 0;
+
+protected slots:
+    virtual void run() = 0;
 
 public:
-    explicit Worker1(int i, QObject *parent = 0);
-    void stop();
-
+    explicit Worker1(QString name, QObject *parent = 0);
     ~Worker1();
-
-public slots:
-    void run();
 
 signals:
     void finished();
+    void sendData(const QString & text);
 };
 
 #endif // TESTCLASS_H

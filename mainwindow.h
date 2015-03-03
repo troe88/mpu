@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QDebug>
-#include "worker1.h"
+#include "w1.h"
 #include <QThread>
 #include <QtConcurrent/QtConcurrent>
 
@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    Worker1* tc;
+    w1* w1_;
     QThread* thread;
 
 public:
@@ -28,8 +28,6 @@ private:
     Ui::MainWindow *ui;
     void closeEvent(QCloseEvent *event);
 
-public slots:
-    void showMSG() { qDebug() << "msg"; }
 };
 
 #endif // MAINWINDOW_H
